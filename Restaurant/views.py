@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from rest_framework import generics, viewsets, permissions
+from rest_framework import generics, viewsets
+from rest_framework.permissions import IsAuthenticated
 from . import serializers
 from .models import MenuItem, Booking
 
@@ -17,6 +18,6 @@ class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView
     serializer_class = serializers.MenuItemSerializer
 
 class BookingViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     queryset = Booking.objects.all()
     serializer_class = serializers.BookingSerializer
-    pemission_classes = [permissions.IsAuthenticated]
