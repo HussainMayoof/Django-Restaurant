@@ -25,3 +25,11 @@ DATABASES  =  {
 }
 ```
 - Run `py manage.py runserver` in the project directory to run the server, which can be viewed at `https://127.0.0.1:8000` by default.
+
+## Testing
+
+To test the API, use the following endpoints appended to the `https://127.0.0.1:8000` by default:
+
+- `/restaurant/menu`
+- `/restaurant/menu/<int:pk>`
+- `/restaurant/booking/tables`
